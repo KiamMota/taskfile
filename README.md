@@ -35,6 +35,12 @@ This creates a task within the file for the specific executor. It creates essent
 
 If you're the executor, you can use a `-` instead of `<name>`.
 
+``` bash
+task list 
+```
+
+list all taskfile
+
 
 
 
