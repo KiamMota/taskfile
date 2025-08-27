@@ -27,6 +27,7 @@ def cmd_add():
         print("error: context not found. (use --context to use your taskfile)")
         exit(1)
 
+    task_state = "[TODO]"
     task_date = datetime.now().strftime("%H:%M:%S - %Y/%m/%d") 
     task_sender: str = context.get_sender_context()
     
@@ -35,8 +36,9 @@ def cmd_add():
     else:
         task_executor = sys.argv[4]
     
-    task_all_string: str = "[" + task_date + "]" + task_sender
-    task_all_string += "Task: " + task_content
+    task_all_string: str = task_state + " [" + task_date + "]" + " \"" + task_sender + "\" "
+    task_all_string += "to \"" + task_executor + "\" : \n"
+    task_all_string += "\t" + task_content
     utils.file.write_file(context.get_taskfile_context(), task_all_string)
 
     print("done.")
