@@ -7,3 +7,4 @@ set(ALL_SRC
 )
 
 include_directories(${CMAKE_SOURCE_DIR})
+add_library(cjson STATIC EXCLUDE_FROM_ALL ${ALL_SRC})
