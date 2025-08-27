@@ -5,8 +5,9 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 set(ALL_SRC 
   src/main.c
+  src/messages.c
 )
 
 add_subdirectory(extern/cjson)
-add_executable(task src/main.c)
+add_executable(task ${ALL_SRC})
 include_directories(task PRIVATE extern src)
