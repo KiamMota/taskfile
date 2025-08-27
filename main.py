@@ -1,4 +1,5 @@
 import sys
+from cmd.add import cmd_add
 import dispatch
 import utils.messages
 
