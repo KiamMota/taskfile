@@ -5,7 +5,7 @@ from context import create_context
 
 MAIN_NAME = "Taskfile"
 
-def cmd_create():
+def cmd_init():
     file: str = sys.argv[2]
     abspath: str = os.getcwd()
     if sys.argv[2] == "": return

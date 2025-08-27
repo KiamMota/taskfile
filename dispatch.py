@@ -1,12 +1,12 @@
 import sys
 
-import cmd.create
+import cmd.init
 import cmd.add
 
 def dispatch_table():
     arg: str = sys.argv[1]
     umap: dict = {} 
-    umap["create"] = cmd.create.cmd_create
+    umap["init"] = cmd.init.cmd_init
     umap["add"] = cmd.add.cmd_add
 
     if arg in umap:
