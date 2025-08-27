@@ -3,6 +3,8 @@ import os
 import utils.file
 from context import create_context
 
+MAIN_NAME = "Taskfile"
+
 def create():
     file: str = sys.argv[2]
     abspath: str = os.getcwd()
@@ -14,7 +16,7 @@ def create():
         create_context(file, "--")
         return
     if sys.argv[1] == "create" and sys.argv[2] == '-':
-        utils.file.create_file("taskfile.txt")
-        print("file named taskfile.txt created in " + abspath)
-        create_context("taskfile.txt", "--")
+        utils.file.create_file(MAIN_NAME)
+        print("file named Taskfile created in " + abspath)
+        create_context(MAIN_NAME, "--")
         return

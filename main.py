@@ -1,4 +1,5 @@
 import sys
+import dispatch
 import utils.messages
 
 def init():
@@ -11,6 +12,6 @@ def init():
     if sys.argv[1] == "--version" or sys.argv[1] == "-v" :
         print(utils.messages.version_message())
         exit(0)
-
+    dispatch.dispatch_table()
 
 init()
