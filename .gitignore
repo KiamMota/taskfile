@@ -1,8 +1,4 @@
-*.pyc
-__pycache__/
+build/
+.cache/*
+*.bin
 
-*.log
-.env/
-.vscode/
-.vs/
-*.json
