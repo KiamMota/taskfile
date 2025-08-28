@@ -9,3 +9,8 @@ void help() {
 }
 
 void version() { printf("taskfile version %s\n", task_version); }
+
+void err(const char *log) {
+  printf("error: %s\n", log);
+  fflush(stdin);
+}

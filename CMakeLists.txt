@@ -8,6 +8,7 @@ set(ALL_SRC
   src/messages.c
   src/dispatch.c
   src/cmd-create.c
+  src/utils-file.c
 )
 
 add_subdirectory(extern/cjson)
