@@ -1,10 +1,7 @@
 #include "tfile_context.h"
 #include "cjson/cJSON.h"
-#include "defines.h"
 #include "messages.h"
-#include "stdio.h"
 #include "utils-file.h"
-#include <stdlib.h>
 #include <string.h>
 
 static char *configure_context() {
