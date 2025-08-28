@@ -6,25 +6,39 @@
 #include <stdio.h>
 #include <string.h>
 
-// task create -
+static bool taskfile_exists() {
+  if (file_exists("Taskfile")) {
+    return true;
+  }
+  return false;
+}
 
-void cmd_init() {
-  if (arg_n < 3) {
-    err("insufficient arguments");
+static void create_files() {
+  if (!create_file("Taskfile")) {
+    err("cannot create file");
     return;
   }
+  printf("created taskfile.\n");
+  create_context();
+  printf("created context.\n");
+  char *config = configure_context();
+  ovwrite_fie("tfile_context.json", config);
+}
 
-  if (!strcmp(arg_vector[2], "-")) {
-    create_file("Taskfile");
-    printf("taskfile created.\n");
-    if (arg_n == 4 && !strcmp(arg_vector[3], "--force")) {
-      create_context();
-      const char *json = configure_context();
-      ovwrite_fie(".tfile_context.json", json);
+void cmd_init() {
+  if (arg_n == 1)
+    return;
+  if (arg_n == 2) {
+    if (taskfile_exists()) {
+      atten("taskfile already exists.");
+      printf("to override, use --force.\n");
       return;
     }
-    atten("A configuration file already exists. If you want to overwrite it, "
-          "use: task init <name> --force");
+    create_files();
+  }
+  if (arg_n == 3 && !strcmp(arg_vector[2], "--force")) {
+    printf("overriding files...\n");
+    create_files();
     return;
   }
 }

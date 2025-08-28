@@ -37,10 +37,10 @@ void ovwrite_fie(const char *name, const char *content) {
 }
 
 bool create_file(const char *name) {
-  FILE *f = fopen(name, "r");
-  if (!f) {
+  FILE *f = fopen(name, "w");
+  if (!f)
     return false;
-  }
+  fprintf(f, "%s", "");
   fclose(f);
   return true;
 }
