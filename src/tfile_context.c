@@ -4,7 +4,7 @@
 #include "utils-file.h"
 #include <string.h>
 
-static char *configure_context() {
+char *configure_context() {
   cJSON *main_obj = cJSON_CreateObject();
   cJSON *config_obj = cJSON_CreateObject();
   cJSON_AddStringToObject(config_obj, MAIN_CTXF_USER, "none");
@@ -49,5 +49,4 @@ void create_context() {
   if (!file_exists(".tfile_context.json")) {
     create_file(".tfile_context.json");
   }
-  write_file(".tfile_context.json", configure_context());
 }

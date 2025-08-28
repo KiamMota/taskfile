@@ -4,6 +4,7 @@
 #include "defines.h"
 
 void write_file(const char *name, const char *content);
+void ovwrite_fie(const char *name, const char *content);
 bool file_exists(const char *name);
 bool create_file(const char *name);
 char *get_file_content(const char *name);

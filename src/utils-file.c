@@ -30,6 +30,12 @@ char *get_file_content(const char *name) {
   return content;
 }
 
+void ovwrite_fie(const char *name, const char *content) {
+  FILE *f = fopen(name, "w");
+  fprintf(f, "%s\n", content);
+  fclose(f);
+}
+
 bool create_file(const char *name) {
   FILE *f = fopen(name, "r");
   if (!f) {

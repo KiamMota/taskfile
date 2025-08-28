@@ -14,3 +14,8 @@ void err(const char *log) {
   printf("error: %s\n", log);
   fflush(stdin);
 }
+
+void atten(const char *log) {
+  printf("ATTENTION: %s\n", log);
+  fflush(stdout);
+}

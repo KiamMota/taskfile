@@ -7,6 +7,7 @@
 #define MAIN_CTXF_TICKETTYPE "ticket_type"
 
 void create_context();
+char *configure_context();
 char *get_context_user();
 char *get_context_taskfile();
 char *get_context_ticket_type();
