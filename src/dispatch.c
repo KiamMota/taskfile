@@ -1,11 +1,10 @@
 #include "dispatch.h"
+#include "cmd-config.h"
 #include "cmd-init.h"
 #include <stdio.h>
 #include <string.h>
 
-Dispatch disp[] = {
-    {"init", cmd_init},
-};
+Dispatch disp[] = {{"init", cmd_init}, {"config", cmd_config}};
 
 int size_commands = sizeof(disp) / sizeof(disp[0]);
 

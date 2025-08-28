@@ -5,6 +5,7 @@
 #include "stdio.h"
 #include "utils-file.h"
 #include <stdlib.h>
+#include <string.h>
 
 static char *configure_context() {
   cJSON *main_obj = cJSON_CreateObject();
@@ -19,34 +20,31 @@ static char *configure_context() {
 }
 
 static cJSON *start_parsing() {
-
   char *file = get_file_content(".tfile_context.json");
   if (!file_exists(".tfile_context.json")) {
-    err("err: context file not exists.");
+    err("context file not exists.");
     return NULL;
   }
   cJSON *parse_root = cJSON_Parse(file);
   cJSON *config = cJSON_GetObjectItem(parse_root, "config");
-  if (!config)
-    return NULL;
   return config;
 }
 
 char *get_context_user() {
   cJSON *config = start_parsing();
-  cJSON *user = cJSON_GetObjectItem(config, "username");
+  cJSON *user = cJSON_GetObjectItem(config, MAIN_CTXF_USER);
   return user->valuestring;
 }
 
 char *get_context_taskfile() {
   cJSON *config = start_parsing();
-  cJSON *taskname = cJSON_GetObjectItem(config, "taskname");
+  cJSON *taskname = cJSON_GetObjectItem(config, MAIN_CTXF_TFILE);
   return taskname->valuestring;
 }
 
 char *get_context_ticket_type() {
   cJSON *config = start_parsing();
-  cJSON *ticket_type = cJSON_GetObjectItem(config, "ticket_type");
+  cJSON *ticket_type = cJSON_GetObjectItem(config, MAIN_CTXF_TICKETTYPE);
   return ticket_type->valuestring;
 }
 
