@@ -4,7 +4,7 @@
 #define MAIN_CTXF_NAME ".tfile_context.json"
 #define MAIN_CTXF_TFILE "taskfile"
 #define MAIN_CTXF_USER "username"
-#define MAIN_CTXF_TICKETTYPE "ticket_type"
+#define MAIN_CTXF_LASTTICKET "last_ticket"
 
 void create_context();
 char *configure_context();

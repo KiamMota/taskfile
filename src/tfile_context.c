@@ -9,7 +9,7 @@ char *configure_context() {
   cJSON *config_obj = cJSON_CreateObject();
   cJSON_AddStringToObject(config_obj, MAIN_CTXF_USER, "none");
   cJSON_AddStringToObject(config_obj, MAIN_CTXF_TFILE, "Taskfile");
-  cJSON_AddStringToObject(config_obj, MAIN_CTXF_TICKETTYPE, "normal");
+  cJSON_AddStringToObject(config_obj, MAIN_CTXF_LASTTICKET, "1");
   cJSON_AddItemToObject(main_obj, "config", config_obj);
   char *json_ret = cJSON_Print(main_obj);
   cJSON_Delete(main_obj);
@@ -41,7 +41,7 @@ char *get_context_taskfile() {
 
 char *get_context_ticket_type() {
   cJSON *config = start_parsing();
-  cJSON *ticket_type = cJSON_GetObjectItem(config, MAIN_CTXF_TICKETTYPE);
+  cJSON *ticket_type = cJSON_GetObjectItem(config, MAIN_CTXF_LASTTICKET);
   return ticket_type->valuestring;
 }
 
