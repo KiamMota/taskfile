@@ -1,5 +1,7 @@
 #include "tfile_context.h"
 #include "cjson/cJSON.h"
+#include "defines.h"
+#include "messages.h"
 #include "stdio.h"
 #include "utils-file.h"
 #include <stdlib.h>
@@ -15,8 +17,42 @@ static char *configure_context() {
   cJSON_Delete(main_obj);
   return json_ret;
 }
+
+static cJSON *start_parsing() {
+
+  char *file = get_file_content(".tfile_context.json");
+  if (!file_exists(".tfile_context.json")) {
+    err("err: context file not exists.");
+    return NULL;
+  }
+  cJSON *parse_root = cJSON_Parse(file);
+  cJSON *config = cJSON_GetObjectItem(parse_root, "config");
+  if (!config)
+    return NULL;
+  return config;
+}
+
+char *get_context_user() {
+  cJSON *config = start_parsing();
+  cJSON *user = cJSON_GetObjectItem(config, "username");
+  return user->valuestring;
+}
+
+char *get_context_taskfile() {
+  cJSON *config = start_parsing();
+  cJSON *taskname = cJSON_GetObjectItem(config, "taskname");
+  return taskname->valuestring;
+}
+
+char *get_context_ticket_type() {
+  cJSON *config = start_parsing();
+  cJSON *ticket_type = cJSON_GetObjectItem(config, "ticket_type");
+  return ticket_type->valuestring;
+}
+
 void create_context() {
-  if (!file_exists(".tfile_context.json"))
+  if (!file_exists(".tfile_context.json")) {
     create_file(".tfile_context.json");
+  }
   write_file(".tfile_context.json", configure_context());
 }
