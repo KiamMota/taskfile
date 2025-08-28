@@ -6,6 +6,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(ALL_SRC 
   src/main.c
   src/messages.c
+  src/dispatch.c
+  src/cmd-create.c
 )
 
 add_subdirectory(extern/cjson)

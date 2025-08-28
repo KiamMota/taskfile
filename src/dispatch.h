@@ -3,9 +3,9 @@
 
 typedef struct {
   char *command;
-  void (*f)(char **argv);
+  void (*f)();
 } Dispatch;
 
-void disptach(char **argv);
+void disptach(const char *key);
 
 #endif
