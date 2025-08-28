@@ -4,24 +4,26 @@
 
 void write_file(const char *name, const char *content) {
   FILE *f = fopen(name, "a");
-  fprintf(f, content, "\n");
+  if (!f)
+    return;
+  fprintf(f, "%s\n", content);
   fclose(f);
 }
 
-void create_file(const char *name) {
-  FILE *f = fopen(name, "a");
+bool create_file(const char *name) {
+  FILE *f = fopen(name, "r");
   if (!f) {
-    err("cannot create the file.");
-    return;
+    return false;
   }
   fclose(f);
+  return true;
 }
 
 bool file_exists(const char *name) {
   FILE *f = fopen(name, "r");
   if (!f) {
-    return true;
+    return false;
   }
   fclose(f);
-  return false;
+  return true;
 }

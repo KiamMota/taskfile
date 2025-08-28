@@ -1,6 +1,6 @@
 #ifndef _CMD_CREATE_H_
 #define _CMD_CREATE_H_
 
-void cmd_create();
+void cmd_init();
 
 #endif

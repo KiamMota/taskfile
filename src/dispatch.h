@@ -7,5 +7,6 @@ typedef struct {
 } Dispatch;
 
 void disptach(const char *key);
+void show_commands();
 
 #endif

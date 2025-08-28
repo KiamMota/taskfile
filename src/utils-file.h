@@ -5,6 +5,6 @@
 
 void write_file(const char *name, const char *content);
 bool file_exists(const char *name);
-void create_file(const char *name);
+bool create_file(const char *name);
 
 #endif

@@ -7,10 +7,12 @@ set(ALL_SRC
   src/main.c
   src/messages.c
   src/dispatch.c
-  src/cmd-create.c
+  src/cmd-init.c
   src/utils-file.c
+  src/tfile_context.c
 )
 
 add_subdirectory(extern/cjson)
 add_executable(task ${ALL_SRC})
 include_directories(task PRIVATE extern src)
+target_link_libraries(task PRIVATE cjson)

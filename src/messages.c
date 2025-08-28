@@ -5,7 +5,7 @@
 void help() {
   printf("welcome to taskfile.\n");
   printf("\tusage:\n");
-  printf("task <command> <subcommand> <parameters>");
+  printf("task <command> <subcommand> <parameters>\n");
 }
 
 void version() { printf("taskfile version %s\n", task_version); }

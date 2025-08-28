@@ -1,10 +1,10 @@
 #include "dispatch.h"
-#include "cmd-create.h"
+#include "cmd-init.h"
 #include <stdio.h>
 #include <string.h>
 
 Dispatch disp[] = {
-    {"create", cmd_create},
+    {"init", cmd_init},
 };
 
 int size_commands = sizeof(disp) / sizeof(disp[0]);
@@ -17,5 +17,12 @@ void disptach(const char *key) {
     }
   }
   printf("error: '%s' is not a valid argument.\n", key);
-  printf("(task -h or task --help to see commands)\n");
+  printf("(task -h or task --help to see commands)");
+}
+
+void show_commands() {
+  printf("commands: \n");
+  for (int i = 0; i < size_commands; i++) {
+    printf("\t%s\n", disp[i].command);
+  }
 }
